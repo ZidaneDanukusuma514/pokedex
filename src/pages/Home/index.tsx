@@ -10,6 +10,7 @@ export interface IHomeProps {}
 
 export default function Home(props: IHomeProps) {
   const { handleApi, handleData, DataApi, CurrentPokemon } = useStore();
+
   useEffect(() => {
     axios
       .get("https://pokeapi.co/api/v2/pokemon?offset=10&limit=10")
