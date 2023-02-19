@@ -1,9 +1,11 @@
 import * as React from "react";
-import Pokemon from "../../component/Pokemon.tsx";
+import Pokemon from "../../component/PokemonItem";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useStore } from "../../Zustand";
-import PokemonList from "../../component/PokemonList.tsx";
+import PokemonList from "../../component/PokemonList";
+import PokemonItem from "../../component/PokemonItem";
+import Header from "../../component/Header";
 export interface IHomeProps {}
 
 export default function Home(props: IHomeProps) {
@@ -34,6 +36,7 @@ export default function Home(props: IHomeProps) {
   return (
     <div className="w-full bg-slate-700">
       <div className="container mx-auto h-screen ">
+        <Header />
         <PokemonList>
           <button
             className="col-span-4 border-2 p-4 bg-slate-200 hover:bg-slate-400"
@@ -43,10 +46,12 @@ export default function Home(props: IHomeProps) {
           </button>
           {CurrentPokemon.length > 0 ? (
             CurrentPokemon.map((item, index) => (
-              <Pokemon key={index} data={item} />
+              <PokemonItem key={index} data={item} />
             ))
           ) : (
-            <h1>No pokemon here</h1>
+            <h1 className="justify-self-center font-bold text-white ">
+              No pokemon here
+            </h1>
           )}
         </PokemonList>
       </div>

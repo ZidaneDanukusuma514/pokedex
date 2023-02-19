@@ -1,10 +1,10 @@
 import * as React from "react";
 
-export interface IPokemonProps {
+export interface IPokemonItemProps {
   data: any;
 }
 
-export default function Pokemon({ data }: IPokemonProps) {
+export default function PokemonItem({ data }: IPokemonItemProps) {
   return (
     <div className="bg-slate-200 flex flex-col items-center border-2 w-full">
       <div>
