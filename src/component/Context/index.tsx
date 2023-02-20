@@ -2,29 +2,36 @@ import axios from "axios";
 import * as React from "react";
 import { createContext } from "react";
 import { useStore } from "../../Zustand";
+import { PokemonContexProps } from "./Interface";
 
 export interface IAppProps {
   children: React.ReactNode;
 }
-export interface PokemonProps {
-  handleEarlyApi: (offset: string) => void;
-}
-
-const PokemonContext = createContext<PokemonProps | null>(null);
+export const PokemonContext = createContext<PokemonContexProps | null>(null);
 
 export const PokemonProvider = ({ children }: IAppProps) => {
-  const { handleApi } = useStore();
-
-  const handleEarlyApi = (offset: string) => {
-    axios
-      .get("https://pokeapi.co/api/v2/pokemon?offset=10&limit=10")
+  const { CurrentPokemon, DataApi, handleApi, handleData } = useStore();
+  const [Testing, setTesting] = React.useState("testing context");
+  const handleEarlyApi = async (offset: string) => {
+    await axios
+      .get(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=10`)
       .then((state) => state.data)
       .then((respon) => {
         handleApi(respon.results);
       });
   };
+  const handleGetData = () => {
+    DataApi.forEach(async (state: any) => {
+      await axios
+        .get(state.url)
+        .then((response) => response.data)
+        .then((response) => {
+          handleData(response);
+        });
+    });
+  };
   return (
-    <PokemonContext.Provider value={{ handleEarlyApi }}>
+    <PokemonContext.Provider value={{ handleEarlyApi, handleGetData, Testing }}>
       {children}
     </PokemonContext.Provider>
   );
