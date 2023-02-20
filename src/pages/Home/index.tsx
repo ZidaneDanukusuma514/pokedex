@@ -6,17 +6,17 @@ import { useStore } from "../../Zustand";
 import PokemonList from "../../component/PokemonList";
 import PokemonItem from "../../component/PokemonItem";
 import Header from "../../component/Header";
-import { PokemonContext } from "../../component/Context";
-import { PokemonContexProps } from "../../component/Context/Interface";
+import { PokemonContext } from "../../Context";
+import { PokemonContexProps } from "../../Context/Interface";
 export interface IHomeProps {}
 
 export default function Home(props: IHomeProps) {
-  const { handleApi, handleData, DataApi, CurrentPokemon } = useStore();
+  const { DataApi, CurrentPokemon } = useStore();
   const { handleEarlyApi, handleGetData } = React.useContext(
     PokemonContext
   ) as PokemonContexProps;
   useEffect(() => {
-    handleEarlyApi("40");
+    handleEarlyApi(1);
   }, []);
   useEffect(() => {
     handleGetData();
@@ -24,9 +24,10 @@ export default function Home(props: IHomeProps) {
 
   return (
     <div className="w-full bg-slate-700">
-      <div className="container mx-auto h-screen ">
+      <div className="container mx-auto ">
         <Header />
-        {CurrentPokemon.length}
+        <p>Current pokemon Shown {CurrentPokemon.length}</p>
+
         <PokemonList>
           {CurrentPokemon.length > 0 ? (
             CurrentPokemon.map((item, index) => (

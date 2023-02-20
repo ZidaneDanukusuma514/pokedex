@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as React from "react";
 import { createContext } from "react";
-import { useStore } from "../../Zustand";
+import { useStore } from "../Zustand";
 import { PokemonContexProps } from "./Interface";
 
 export interface IAppProps {
@@ -12,9 +12,12 @@ export const PokemonContext = createContext<PokemonContexProps | null>(null);
 export const PokemonProvider = ({ children }: IAppProps) => {
   const { CurrentPokemon, DataApi, handleApi, handleData } = useStore();
   const [Testing, setTesting] = React.useState("testing context");
-  const handleEarlyApi = async (offset: string) => {
+  const [Storage, setStorage] = React.useState<any[]>([]);
+  const handleEarlyApi = async (offset: number) => {
     await axios
-      .get(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=10`)
+      .get(
+        `https://pokeapi.co/api/v2/pokemon?offset=${String(offset)}&limit=10`
+      )
       .then((state) => state.data)
       .then((respon) => {
         handleApi(respon.results);

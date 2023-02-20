@@ -1,5 +1,5 @@
 export interface PokemonContexProps {
   Testing: string;
-  handleEarlyApi: (offset: string) => void;
+  handleEarlyApi: (offset: number) => void;
   handleGetData: () => void;
 }
