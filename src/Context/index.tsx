@@ -10,8 +10,14 @@ export interface IAppProps {
 export const PokemonContext = createContext<PokemonContexProps | null>(null);
 
 export const PokemonProvider = ({ children }: IAppProps) => {
-  const { CurrentPokemon, DataApi, handleApi, handleData, handleSearch } =
-    useStore();
+  const {
+    CurrentPokemon,
+    DataApi,
+    handleClear,
+    handleApi,
+    handleData,
+    handleSearch,
+  } = useStore();
   const [Testing, setTesting] = React.useState("testing context");
   const [Storage, setStorage] = React.useState<any[]>([]);
   const handleEarlyApi = async (offset: number) => {
@@ -34,8 +40,10 @@ export const PokemonProvider = ({ children }: IAppProps) => {
         });
     });
   };
+
   const handleGetSearch = async (props: string) => {
     if (props === "") {
+      handleClear();
       handleGetData();
     } else {
       axios

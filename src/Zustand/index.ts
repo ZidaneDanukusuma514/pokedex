@@ -8,6 +8,7 @@ interface PokemonProps {
   handleApi: (props: any) => void;
   handleData: (props: any) => void;
   handleSearch: (props: any) => void;
+  handleClear: () => void;
 }
 
 export const useStore = create<PokemonProps>((set) => ({
@@ -28,6 +29,11 @@ export const useStore = create<PokemonProps>((set) => ({
   handleSearch: (props: any) => {
     set((state) => ({
       CurrentPokemon: [props],
+    }));
+  },
+  handleClear: () => {
+    set(() => ({
+      CurrentPokemon: [],
     }));
   },
 }));
