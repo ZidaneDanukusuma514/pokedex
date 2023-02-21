@@ -8,10 +8,11 @@ import PokemonItem from "../../component/PokemonItem";
 import Header from "../../component/Header";
 import { PokemonContext } from "../../Context";
 import { PokemonContexProps } from "../../Context/Interface";
+import Search from "../../component/Search";
 export interface IHomeProps {}
 
 export default function Home(props: IHomeProps) {
-  const { DataApi, CurrentPokemon } = useStore();
+  const { Data, DataApi, CurrentPokemon } = useStore();
   const { handleEarlyApi, handleGetData } = React.useContext(
     PokemonContext
   ) as PokemonContexProps;
@@ -26,6 +27,7 @@ export default function Home(props: IHomeProps) {
     <div className="w-full bg-slate-700">
       <div className="container mx-auto ">
         <Header />
+        <Search />
         <p>Current pokemon Shown {CurrentPokemon.length}</p>
 
         <PokemonList>

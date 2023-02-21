@@ -10,7 +10,8 @@ export interface IAppProps {
 export const PokemonContext = createContext<PokemonContexProps | null>(null);
 
 export const PokemonProvider = ({ children }: IAppProps) => {
-  const { CurrentPokemon, DataApi, handleApi, handleData } = useStore();
+  const { CurrentPokemon, DataApi, handleApi, handleData, handleSearch } =
+    useStore();
   const [Testing, setTesting] = React.useState("testing context");
   const [Storage, setStorage] = React.useState<any[]>([]);
   const handleEarlyApi = async (offset: number) => {
@@ -33,8 +34,22 @@ export const PokemonProvider = ({ children }: IAppProps) => {
         });
     });
   };
+  const handleGetSearch = async (props: string) => {
+    if (props === "") {
+      handleGetData();
+    } else {
+      axios
+        .get(`https://pokeapi.co/api/v2/pokemon/${props}`)
+        .then((response) => {
+          handleSearch(response.data);
+        });
+    }
+  };
+
   return (
-    <PokemonContext.Provider value={{ handleEarlyApi, handleGetData, Testing }}>
+    <PokemonContext.Provider
+      value={{ handleEarlyApi, handleGetSearch, handleGetData, Testing }}
+    >
       {children}
     </PokemonContext.Provider>
   );
