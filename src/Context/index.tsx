@@ -24,7 +24,7 @@ export const PokemonProvider = ({ children }: IAppProps) => {
     handleClear();
     await axios
       .get(
-        `https://pokeapi.co/api/v2/pokemon?offset=${String(offset)}&limit=10`
+        `https://pokeapi.co/api/v2/pokemon?offset=${String(offset)}&limit=12`
       )
       .then((state) => state.data)
       .then((respon) => {

@@ -11,7 +11,7 @@ export default function PokemonListSlider(props: IPokemonListSliderProps) {
   ) as PokemonContexProps;
 
   return (
-    <div className="flex justify-center space-x-5 m-4">
+    <div className="flex justify-center space-x-5 p-4">
       <ButtonS
         value={10}
         handleFunc={handleEarlyApi}

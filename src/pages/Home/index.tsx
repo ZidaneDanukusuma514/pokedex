@@ -29,7 +29,6 @@ export default function Home(props: IHomeProps) {
       <div className="container mx-auto ">
         <Header />
         <Search />
-        <p>Current pokemon Shown {CurrentPokemon.length}</p>
 
         <PokemonList>
           {CurrentPokemon.length > 0 ? (
