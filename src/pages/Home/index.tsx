@@ -9,6 +9,7 @@ import Header from "../../component/Header";
 import { PokemonContext } from "../../Context";
 import { PokemonContexProps } from "../../Context/Interface";
 import Search from "../../component/Search";
+import PokemonListSlider from "../../component/PokemonListSlider";
 export interface IHomeProps {}
 
 export default function Home(props: IHomeProps) {
@@ -24,7 +25,7 @@ export default function Home(props: IHomeProps) {
   }, [DataApi]);
 
   return (
-    <div className="w-full bg-slate-700">
+    <div className="w-full h-full bg-slate-700">
       <div className="container mx-auto ">
         <Header />
         <Search />
@@ -41,6 +42,7 @@ export default function Home(props: IHomeProps) {
             </h1>
           )}
         </PokemonList>
+        <PokemonListSlider />
       </div>
     </div>
   );
