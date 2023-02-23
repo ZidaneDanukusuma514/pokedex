@@ -17,6 +17,7 @@ export const PokemonProvider = ({ children }: IAppProps) => {
     handleApi,
     handleData,
     handleSearch,
+    handleTesterer,
   } = useStore();
   const [Testing, setTesting] = React.useState("testing context");
   const [Storage, setStorage] = React.useState<any[]>([]);
@@ -29,7 +30,8 @@ export const PokemonProvider = ({ children }: IAppProps) => {
       .then((state) => state.data)
       .then((respon) => {
         handleApi(respon.results);
-      });
+      })
+      .catch(() => console.log("no data"));
   };
   const handleGetData = () => {
     DataApi.forEach(async (state: any) => {
@@ -38,10 +40,19 @@ export const PokemonProvider = ({ children }: IAppProps) => {
         .then((response) => response.data)
         .then((response) => {
           handleData(response);
-        });
+        })
+        .catch(() => console.log("no data"));
     });
   };
-
+  const handleTest = async () => {
+    for (let i = 1; i <= 10; i++) {
+      await axios
+        .get(`https://pokeapi.co/api/v2/pokemon/${i}`)
+        .then((response) => {
+          handleTesterer(response.data);
+        });
+    }
+  };
   const handleGetSearch = async (props: string) => {
     if (props === "") {
       handleClear();
@@ -57,7 +68,13 @@ export const PokemonProvider = ({ children }: IAppProps) => {
 
   return (
     <PokemonContext.Provider
-      value={{ handleEarlyApi, handleGetSearch, handleGetData, Testing }}
+      value={{
+        handleEarlyApi,
+        handleGetSearch,
+        handleGetData,
+        handleTest,
+        Testing,
+      }}
     >
       {children}
     </PokemonContext.Provider>

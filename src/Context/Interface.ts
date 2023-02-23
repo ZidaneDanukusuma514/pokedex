@@ -3,4 +3,5 @@ export interface PokemonContexProps {
   handleEarlyApi: (offset: number) => void;
   handleGetData: () => void;
   handleGetSearch: (props: string) => void;
+  handleTest: () => void;
 }

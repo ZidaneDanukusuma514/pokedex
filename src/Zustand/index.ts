@@ -5,15 +5,18 @@ interface PokemonProps {
   DataApi: any[];
   CurrentPokemon: any[];
   Data: any[];
+  Test: any[];
   handleApi: (props: any) => void;
   handleData: (props: any) => void;
   handleSearch: (props: any) => void;
   handleClear: () => void;
+  handleTesterer: (props: any) => void;
 }
 
 export const useStore = create<PokemonProps>((set) => ({
   log: "Zustand is state management",
   DataApi: [],
+  Test: [],
   CurrentPokemon: [],
   Data: [],
   handleApi: (props: any) => {
@@ -34,6 +37,11 @@ export const useStore = create<PokemonProps>((set) => ({
   handleClear: () => {
     set(() => ({
       CurrentPokemon: [],
+    }));
+  },
+  handleTesterer: (props: any) => {
+    set((state) => ({
+      Test: [...state.Test, props],
     }));
   },
 }));

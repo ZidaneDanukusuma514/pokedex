@@ -13,6 +13,12 @@ export default function PokemonListSlider(props: IPokemonListSliderProps) {
   return (
     <div className="flex justify-center space-x-5 p-4">
       <ButtonS
+        value={0}
+        handleFunc={handleEarlyApi}
+        BtnBr="border-2"
+        BtnPd="p-3"
+      />
+      <ButtonS
         value={10}
         handleFunc={handleEarlyApi}
         BtnBr="border-2"

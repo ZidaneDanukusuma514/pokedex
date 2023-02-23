@@ -15,7 +15,10 @@ export default function ButtonS({
 }: IButtonSProps) {
   return (
     <button
-      className={`transition-all ease-in-out text-white hover:text-slate-800  hover:bg-white font-semibold ${BtnPd} ${BtnBr}`}
+      className={`${({ isActive }: any) =>
+        isActive
+          ? "text-slate-800 bg-white"
+          : "text-white bg-slate-800"} transition-all ease-in-out  hover:text-white hover:bg-slate-800 active:bg-slate-700  font-semibold ${BtnBr} ${BtnPd}`}
       onClick={() => handleFunc(value)}
     >
       {value}
