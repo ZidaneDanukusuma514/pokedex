@@ -16,12 +16,14 @@ export const PokemonProvider = ({ children }: IAppProps) => {
 
   const handleGetAllPokemon = async (offset: number, limit: number) => {
     ClearPokemon();
-
-    for (let i = offset; i <= limit; i++) {
+    for (let i = offset; i <= offset + limit; i++) {
       await axios
         .get(`https://pokeapi.co/api/v2/pokemon/${i}`)
         .then((response) => {
           InsertAllPokemon(response.data);
+        })
+        .catch((response) => {
+          console.log("Api:", response);
         });
     }
   };

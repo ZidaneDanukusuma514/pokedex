@@ -6,7 +6,7 @@ export interface IPokemonListProps {
 
 export default function PokemonList({ children }: IPokemonListProps) {
   return (
-    <div className="h-screen grid grid-cols-2 md:grid-cols-4 my-4 gap-1 justify-items-center content-center">
+    <div className="grid grid-cols-2  md:grid-cols-4 my-4 gap-1 justify-items-center content-center">
       {children}
     </div>
   );

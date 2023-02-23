@@ -17,7 +17,7 @@ export default function Home(props: IHomeProps) {
   ) as PokemonContexProps;
 
   useEffect(() => {
-    handleGetAllPokemon(1, 12);
+    handleGetAllPokemon(1, 10);
   }, []);
 
   return (
@@ -31,7 +31,7 @@ export default function Home(props: IHomeProps) {
               <PokemonItem key={index} data={item} />
             ))
           ) : (
-            <h1 className="justify-self-center font-bold text-white ">
+            <h1 className="h-screen justify-self-center font-bold text-white ">
               No pokemon here
             </h1>
           )}
