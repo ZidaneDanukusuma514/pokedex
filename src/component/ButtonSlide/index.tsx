@@ -1,14 +1,16 @@
 import * as React from "react";
 
 export interface IButtonSProps {
-  value: number;
+  offset: number;
+  limit: number;
   BtnPd: string;
   BtnBr: string;
-  handleFunc: (value: number) => void;
+  handleFunc: (offset: number, limit: number) => void;
 }
 
 export default function ButtonS({
-  value,
+  offset,
+  limit,
   BtnPd,
   BtnBr,
   handleFunc,
@@ -19,9 +21,9 @@ export default function ButtonS({
         isActive
           ? "text-slate-800 bg-white"
           : "text-white bg-slate-800"} transition-all ease-in-out  hover:text-white hover:bg-slate-800 active:bg-slate-700  font-semibold ${BtnBr} ${BtnPd}`}
-      onClick={() => handleFunc(value)}
+      onClick={() => handleFunc(offset, limit)}
     >
-      {value}
+      {offset}
     </button>
   );
 }

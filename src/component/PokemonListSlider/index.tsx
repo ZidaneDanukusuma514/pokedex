@@ -6,45 +6,51 @@ import ButtonS from "../ButtonSlide";
 
 export interface IPokemonListSliderProps {}
 export default function PokemonListSlider(props: IPokemonListSliderProps) {
-  const { handleEarlyApi } = React.useContext(
+  const { handleGetAllPokemon } = React.useContext(
     PokemonContext
   ) as PokemonContexProps;
 
   return (
     <div className="flex justify-center space-x-5 p-4">
       <ButtonS
-        value={0}
-        handleFunc={handleEarlyApi}
+        offset={1}
+        limit={12}
+        handleFunc={handleGetAllPokemon}
         BtnBr="border-2"
         BtnPd="p-3"
       />
       <ButtonS
-        value={10}
-        handleFunc={handleEarlyApi}
+        offset={10}
+        limit={12}
+        handleFunc={handleGetAllPokemon}
         BtnBr="border-2"
         BtnPd="p-3"
       />
       <ButtonS
-        value={20}
-        handleFunc={handleEarlyApi}
+        offset={20}
+        limit={12}
+        handleFunc={handleGetAllPokemon}
         BtnBr="border-2"
         BtnPd="p-3"
       />
       <ButtonS
-        value={30}
-        handleFunc={handleEarlyApi}
+        offset={30}
+        limit={12}
+        handleFunc={handleGetAllPokemon}
         BtnBr="border-2"
         BtnPd="p-3"
       />
       <ButtonS
-        value={40}
-        handleFunc={handleEarlyApi}
+        offset={40}
+        limit={12}
+        handleFunc={handleGetAllPokemon}
         BtnBr="border-2"
         BtnPd="p-3"
       />
       <ButtonS
-        value={50}
-        handleFunc={handleEarlyApi}
+        offset={50}
+        limit={12}
+        handleFunc={handleGetAllPokemon}
         BtnBr="border-2"
         BtnPd="p-3"
       />

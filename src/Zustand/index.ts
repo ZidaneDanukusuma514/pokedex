@@ -1,47 +1,22 @@
 import { create } from "zustand";
-
-interface PokemonProps {
-  log: string;
-  DataApi: any[];
-  CurrentPokemon: any[];
-  Data: any[];
-  Test: any[];
-  handleApi: (props: any) => void;
-  handleData: (props: any) => void;
-  handleSearch: (props: any) => void;
-  handleClear: () => void;
-  handleTesterer: (props: any) => void;
-}
-
+import { PokemonProps } from "./Interface";
+// Main state that store all pokemon value is 'CurrentPokemon'
+// Main function InsertAllPokemon
 export const useStore = create<PokemonProps>((set) => ({
-  log: "Zustand is state management",
-  DataApi: [],
-  Test: [],
   CurrentPokemon: [],
-  Data: [],
-  handleApi: (props: any) => {
-    set((state) => ({
-      DataApi: props,
+  InsertPokemon: (props: any) => {
+    set(() => ({
+      CurrentPokemon: [props],
     }));
   },
-  handleData: (props: any) => {
+  InsertAllPokemon: (props: any) => {
     set((state) => ({
       CurrentPokemon: [...state.CurrentPokemon, props],
     }));
   },
-  handleSearch: (props: any) => {
-    set((state) => ({
-      CurrentPokemon: [props],
-    }));
-  },
-  handleClear: () => {
+  ClearPokemon: () => {
     set(() => ({
       CurrentPokemon: [],
-    }));
-  },
-  handleTesterer: (props: any) => {
-    set((state) => ({
-      Test: [...state.Test, props],
     }));
   },
 }));
