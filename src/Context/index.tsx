@@ -16,7 +16,7 @@ export const PokemonProvider = ({ children }: IAppProps) => {
 
   const handleGetAllPokemon = async (offset: number, limit: number) => {
     ClearPokemon();
-    for (let i = offset; i <= offset + limit; i++) {
+    for (let i = offset; i <= offset + limit - 1; i++) {
       await axios
         .get(`https://pokeapi.co/api/v2/pokemon/${i}`)
         .then((response) => {

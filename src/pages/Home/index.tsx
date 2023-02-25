@@ -17,7 +17,7 @@ export default function Home(props: IHomeProps) {
   ) as PokemonContexProps;
 
   useEffect(() => {
-    handleGetAllPokemon(1, 10);
+    handleGetAllPokemon(1, 12);
   }, []);
 
   return (

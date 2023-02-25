@@ -1,15 +1,15 @@
 import { create } from "zustand";
-import { PokemonProps } from "./Interface";
+import { CurrentPokemonProps, PokemonProps } from "./Interface";
 // Main state that store all pokemon value is 'CurrentPokemon'
 // Main function InsertAllPokemon
 export const useStore = create<PokemonProps>((set) => ({
   CurrentPokemon: [],
-  InsertPokemon: (props: any) => {
+  InsertPokemon: (props: CurrentPokemonProps) => {
     set(() => ({
       CurrentPokemon: [props],
     }));
   },
-  InsertAllPokemon: (props: any) => {
+  InsertAllPokemon: (props: CurrentPokemonProps) => {
     set((state) => ({
       CurrentPokemon: [...state.CurrentPokemon, props],
     }));
