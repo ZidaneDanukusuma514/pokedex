@@ -1,8 +1,8 @@
 import * as React from "react";
 import { PokemonContext } from "../../Context";
 import { PokemonContexProps } from "../../Context/Interface";
-import { useStore } from "../../Zustand";
-import ButtonS from "../ButtonSlide";
+import ButtonSliderlider from "../ButtonSlider";
+import ButtonSlider from "../ButtonSlider";
 
 export interface IPokemonListSliderProps {}
 export default function PokemonListSlider(props: IPokemonListSliderProps) {
@@ -12,42 +12,42 @@ export default function PokemonListSlider(props: IPokemonListSliderProps) {
 
   return (
     <div className="flex justify-center space-x-5 p-4">
-      <ButtonS
+      <ButtonSlider
         offset={1}
         limit={12}
         handleFunc={handleGetAllPokemon}
         BtnBr="border-2"
         BtnPd="p-3"
       />
-      <ButtonS
+      <ButtonSlider
         offset={10}
         limit={12}
         handleFunc={handleGetAllPokemon}
         BtnBr="border-2"
         BtnPd="p-3"
       />
-      <ButtonS
+      <ButtonSlider
         offset={20}
         limit={12}
         handleFunc={handleGetAllPokemon}
         BtnBr="border-2"
         BtnPd="p-3"
       />
-      <ButtonS
+      <ButtonSlider
         offset={30}
         limit={12}
         handleFunc={handleGetAllPokemon}
         BtnBr="border-2"
         BtnPd="p-3"
       />
-      <ButtonS
+      <ButtonSlider
         offset={40}
         limit={12}
         handleFunc={handleGetAllPokemon}
         BtnBr="border-2"
         BtnPd="p-3"
       />
-      <ButtonS
+      <ButtonSlider
         offset={50}
         limit={12}
         handleFunc={handleGetAllPokemon}
