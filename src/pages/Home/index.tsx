@@ -5,9 +5,10 @@ import Header from "../../component/Header";
 import { useStore } from "../../Zustand";
 import { PokemonContext } from "../../Context";
 import { PokemonContexProps } from "../../Context/Interface";
+import { Link } from "react-router-dom";
 import Search from "../../component/Search";
 import PokemonListSlider from "../../component/PokemonListSlider";
-import { Link } from "react-router-dom";
+import Linkto from "../../component/Linkto";
 export interface IHomeProps {}
 
 export default function Home(props: IHomeProps) {
@@ -22,12 +23,7 @@ export default function Home(props: IHomeProps) {
 
   return (
     <div className="w-full bg-slate-700">
-      <Link
-        to={"/about"}
-        className="transition-all ease-in fixed right-5 bottom-5 px-6 py-2 font-mono bg-white/50 hover:bg-white border-2 border-black/80 text-black/60 hover:text-black font-bold text-lg rounded-2xl lowercase"
-      >
-        About
-      </Link>
+      <Linkto to={"/about"}>About</Linkto>
       <div className="container mx-auto ">
         <Header />
         <Search />
