@@ -16,7 +16,7 @@ export default function Search(props: ISearchProps) {
   };
 
   return (
-    <div className="mx-auto flex space-x-1 w-5/6 md:w-1/2">
+    <div className="mx-auto flex space-x-1 max-w-4xl w-full md:w-1/2">
       <input
         onChange={(e) => setSearch(e.target.value)}
         value={Search}

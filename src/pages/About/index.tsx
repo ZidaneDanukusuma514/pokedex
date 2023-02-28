@@ -28,7 +28,13 @@ export default function About(props: IAboutProps) {
             <BsFacebook className="mx-auto text-blue-700" size={"100px"} />
             <p className="text-center  font-bold p-4">Facebook</p>
           </a>
-          <div className="bg-rose-500 grow h-1/2 ">Contact</div>
+          <div className="bg-rose-500 grow h-1/2 ">
+            <h1>Contact:</h1>
+            <ul>
+              <li>Phone Number: 08558864612</li>
+              <li>Email: zidanereal514@gmail.com</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
